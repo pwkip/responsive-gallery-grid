@@ -1,0 +1,23 @@
+.rgg-admin-wrap .label,.rgg-admin-wrap .field,.rgg-admin-wrap .description { display:block; }
+.rgg-admin-wrap .label { font-weight:bold; }
+.rgg-admin-wrap .title {
+    background-color: #23282d;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 12px;
+    margin: 20px 0 30px;
+}
+.rgg-admin-wrap .title h3 {
+    color: #ffffff;
+    margin:0;
+}
+
+.rgg-admin-wrap .title p {
+    margin-top: 5px;
+    margin-bottom: 0;
+    color: #ffffff99;
+}
+
+.rgg-admin-wrap .fieldset {
+    margin-left: 15px;
+}
