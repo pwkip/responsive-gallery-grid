@@ -61,6 +61,9 @@ function rgg_gallery_shortcode($output, $attr, $instance = false) {
         $settings_arr['lightbox'] = 'simplelightbox';
     }
 
+    // Sanitize the settings
+    $settings_arr = array_map( fn($value) => htmlentities($value) , $settings_arr);
+
     $type = $settings_arr['type'];
     $class = $settings_arr['class'];
     $rel = $settings_arr['rel'];
