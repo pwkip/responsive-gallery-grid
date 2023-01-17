@@ -62,7 +62,7 @@ function rgg_gallery_shortcode($output, $attr, $instance = false) {
     }
 
     // Sanitize the settings
-    $settings_arr = array_map( fn($value) => htmlentities($value) , $settings_arr);
+    $settings_arr = array_map( 'htmlentities' , $settings_arr);
 
     $type = $settings_arr['type'];
     $class = $settings_arr['class'];
