@@ -640,5 +640,13 @@ function rgg_setting_string() {
 }
 
 function rgg_options_sanitize($input) {
+
+	// Basic sanitization for all input fields
+	$input = array_map('sanitize_text_field', $input);
+
+	// Extra sanitization for attributes to prevent XSS
+	$input['class'] = sanitize_key($input['class']);
+	$input['rel'] = sanitize_key($input['rel']);
+
 	return $input;
 }
