@@ -5,7 +5,7 @@ Tags: responsive, responsive gallery, justified gallery, native gallery
 Requires at least: 3.0
 Requires PHP: 5.2.4
 Tested up to: 6.4
-Stable tag: 2.3.13
+Stable tag: 2.3.14
 License: GPLv2 or later
 
 
@@ -70,6 +70,9 @@ Sure. Please start a support thread for any of your requests.
 4. You can pimp eacht individual gallery to your needs by updating the gallery shortcode paramaters. (Check out the documentation)
 
 == Changelog ==
+
+= 2.3.14 (2024-03-08) =
+* Add nonce to prevent unauthorized users to reset RGG options.
 
 = 2.3.13 (2024-03-04) =
 * Tested with WP version 6.4

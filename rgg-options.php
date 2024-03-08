@@ -4,7 +4,7 @@ if (RGG_IS_PRO) {
 	require_once RGG_PLUGIN_DIR . '/pro/rgg_pro_options.php';
 }
 
-global $rgg_input_fields;
+global $rgg_input_fields, $default_rgg_options;
 $rgg_input_fields = array();
 
 if (!defined('RGG_DEFAULT_TYPE')) { define('RGG_DEFAULT_TYPE', 'rgg'); };
@@ -71,9 +71,15 @@ $default_rgg_options['captions_outtime'] = RGG_DEFAULT_CAPTIONS_OUTTIME;
 
 $rgg_options = wp_parse_args($rgg_options,$default_rgg_options); // replace any missing options with the default options.
 
-if(isset($_POST['reset'])) {
-	update_option(RGG_OPTIONS, $default_rgg_options);
-}
+add_action('admin_init', function() {
+	global $default_rgg_options;
+	if(isset($_POST['reset'])) {
+		if (!wp_verify_nonce($_POST['nonce'], 'rgg_reset_options')) {
+			wp_die('Security check');
+		}
+		update_option(RGG_OPTIONS, $default_rgg_options);
+	}
+}, 10, 0);
 
 add_action( 'admin_enqueue_scripts', 'load_page_options_wp_admin_style' );
 function load_page_options_wp_admin_style() {
@@ -127,6 +133,7 @@ function rgg_options_page() {
     <form method="post" id="reset-form" action="">
         <p class="submit">
             <input name="reset" class="button button-secondary" type="submit" value="Restore defaults" >
+			<input type=hidden name="nonce" value="<?php echo wp_create_nonce('rgg_reset_options') ?>" />
             <input type="hidden" name="action" value="reset" />
         </p>
     </form>
