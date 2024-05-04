@@ -341,7 +341,7 @@ function rgg_print_input_field($slug, $args) {
 ?>	
 	<p>
 		<span class="label"><?php echo $label ?></span>
-		<span class="field"><input type="text" data-default-value="<?php echo $default ?>" value="<?php echo $rgg_options[$slug] ?>" id="<?php echo RGG_OPTIONS.'_'.$slug ?>" name="<?php echo RGG_OPTIONS.'['.$slug.']' ?>"></span>
+		<span class="field"><input type="text" data-default-value="<?php echo htmlspecialchars($default) ?>" value="<?php echo htmlspecialchars($rgg_options[$slug]) ?>" id="<?php echo RGG_OPTIONS.'_'.$slug ?>" name="<?php echo RGG_OPTIONS.'['.$slug.']' ?>"></span>
 		<span class="description"><?php echo $description ?><?php if (!empty($default)) echo ' (Default: '.$default.')' ?></span>
 	</p>
 <?php
