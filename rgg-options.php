@@ -631,11 +631,12 @@ function rgg_the_post_thumbnail ($post_id=0, $size="thumbnail") {
 
 add_action('admin_init', 'rgg_admin_init');
 function rgg_admin_init(){
-	
-	
-register_setting( RGG_OPTIONS, RGG_OPTIONS, 'rgg_options_sanitize' );
-add_settings_section('rgg_main', 'Main Settings', 'rgg_section_text', RGG_PLUGIN);
-add_settings_field('rgg_text_string', 'Plugin Text Input', 'rgg_setting_string', RGG_PLUGIN, 'rgg_main');
+	if (!current_user_can('manage_options')) {
+		wp_die('You do not have sufficient permissions to access this page.');
+	}
+	register_setting( RGG_OPTIONS, RGG_OPTIONS, 'rgg_options_sanitize' );
+	add_settings_section('rgg_main', 'Main Settings', 'rgg_section_text', RGG_PLUGIN);
+	add_settings_field('rgg_text_string', 'Plugin Text Input', 'rgg_setting_string', RGG_PLUGIN, 'rgg_main');
 }
 
 function rgg_section_text() {

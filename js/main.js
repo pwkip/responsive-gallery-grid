@@ -58,7 +58,7 @@ jQuery(document).ready(function($) {
     function pre_init() {
 
         if (typeof $('.rgg-simplelightbox').simpleLightbox === 'function') {
-            $('.rgg-simplelightbox').simpleLightbox();
+            $('.rgg-simplelightbox').simpleLightbox({captionSelector: 'self'});
         }
 
         // add click events for image-above images (slick)

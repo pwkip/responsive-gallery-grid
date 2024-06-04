@@ -201,7 +201,7 @@ function rgg_gallery_shortcode($output, $attr, $instance = false) {
             $title = get_post_field('post_excerpt', $mid);
             $alt = get_post_meta($mid, '_wp_attachment_image_alt', true);
             $title_esc = htmlentities($title, ENT_COMPAT, 'UTF-8');
-            $a_title = $captions == 'title' ? "title=\"$title_esc\"" : '';
+            $a_title = "title=\"$title_esc\"";
 
             $img_info = wp_get_attachment_image_src($mid, $size);
 
