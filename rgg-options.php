@@ -632,7 +632,7 @@ function rgg_the_post_thumbnail ($post_id=0, $size="thumbnail") {
 add_action('admin_init', 'rgg_admin_init');
 function rgg_admin_init(){
 	if (!current_user_can('manage_options')) {
-		wp_die('You do not have sufficient permissions to access this page.');
+		return;
 	}
 	register_setting( RGG_OPTIONS, RGG_OPTIONS, 'rgg_options_sanitize' );
 	add_settings_section('rgg_main', 'Main Settings', 'rgg_section_text', RGG_PLUGIN);

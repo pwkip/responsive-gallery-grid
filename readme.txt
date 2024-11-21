@@ -4,8 +4,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=j_col
 Tags: responsive, responsive gallery, justified gallery, native gallery
 Requires at least: 3.0
 Requires PHP: 5.2.4
-Tested up to: 6.5
-Stable tag: 2.3.17
+Tested up to: 6.7
+Stable tag: 2.3.18
 License: GPLv2 or later
 
 
@@ -70,6 +70,10 @@ Sure. Please start a support thread for any of your requests.
 4. You can pimp eacht individual gallery to your needs by updating the gallery shortcode paramaters. (Check out the documentation)
 
 == Changelog ==
+
+= 2.3.18 (2024-11-22) =
+* fixed bug that locked out non-admin users and caused conflicts with ajax requests
+* Tested with WP version 6.7
 
 = 2.3.17 (2024-06-04) =
 * PRO: Fix plugin update checker
